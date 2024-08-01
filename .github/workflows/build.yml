@@ -1,0 +1,26 @@
+name: build
+on: push
+
+jobs:
+  build:
+    name: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout repository
+        uses: actions/checkout@v4
+      - name: set up jdk 21 for x64
+        uses: actions/setup-java@v4
+        with:
+          java-version: '21'
+          distribution: 'temurin'
+          architecture: x64
+      - name: build and test with maven
+        run: mvn verify
+
+  confirm-build:
+    name: confirm build
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: display build ok
+        run: echo "build ok"
