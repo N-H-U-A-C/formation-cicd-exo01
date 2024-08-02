@@ -27,7 +27,7 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: cicd_test
-          path: dist
+          path: '${{ github.workspace }}/target/*.jar'
 
   confirm-build:
     name: confirm build
