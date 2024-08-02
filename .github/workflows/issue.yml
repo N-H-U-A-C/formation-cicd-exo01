@@ -14,6 +14,6 @@ jobs:
       - env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           ISSUE_URL: ${{ github.event.issue.html_url }}
-          ISSUE_AUTHOR: ${{ github.event.issue.author.login }}
+          ISSUE_AUTHOR: ${{ github.event.issue.user.login }}
           ISSUE_TITLE: ${{ github.event.issue.title }}
         run: gh issue comment $ISSUE_URL -b "thank you $ISSUE_AUTHOR, your issue ($ISSUE_TITLE) have been taken into account"
