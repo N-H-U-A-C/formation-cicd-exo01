@@ -1,0 +1,10 @@
+name: fork
+on: fork
+
+jobs:
+  fork:
+    name: confirm fork
+    runs-on: ubuntu-latest
+    steps:
+      - name: display fork ok
+        run: echo "fork ok"
